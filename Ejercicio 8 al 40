@@ -1,0 +1,721 @@
+
+#8- 
+  num1 = "35"
+  num1 = int(num1)
+  print(type(num1))
+
+#9- 
+  nombre_asociado = "Carlos Pérez"
+  numero_asociado = 12345
+  print(f"Estimado/a {nombre_asociado}, su número de asociado es: {numero_asociado}")
+
+#10-
+
+  resultado = 874 // 27
+  print(resultado)
+
+#11-
+  numero = 10.676767 
+  resultado = round(numero)
+  print(resultado)
+
+#12-  
+
+  productos = [("laptop", 1200, 5), ("mouse", 25, 50), ("teclado", 100, 30)]
+
+      def producto_mas_caro(productos):
+    return max(productos, key=lambda producto: producto[1])
+    mas_caro = producto_mas_caro(productos)
+    print(f"El producto más caro es: {mas_caro[0]} con un precio de ${mas_caro[1]}")
+
+#13- 
+
+
+estudiantes = {
+    101: {"nombre": "Ana", "edad": 16, "calificaciones": {"matemáticas": 85, "ciencias": 90}},
+    102: {"nombre": "Luis", "edad": 17, "calificaciones": {"matemáticas": 78, "ciencias": 88}}
+}
+
+def promedio_calificaciones(estudiantes, matricula):
+  
+    if matricula in estudiantes:
+        
+        calificaciones = estudiantes[matricula]["calificaciones"]
+       
+        promedio = sum(calificaciones.values()) / len(calificaciones)
+        return promedio
+    else:
+        return "El número de matrícula no existe en el registro."
+
+
+matricula = 101
+promedio = promedio_calificaciones(estudiantes, matricula)
+print(f"El promedio de calificaciones del estudiante con matrícula {matricula} es: {promedio}")
+
+
+#14-
+
+ 
+temperaturas = [22.5, 23.0, 21.0, 19.5, 25.0, 26.5, 24.0]
+
+
+def analizar_temperaturas(temperaturas):
+    # Calcular la temperatura media
+    temperatura_media = sum(temperaturas) / len(temperaturas)
+    # Encontrar la temperatura máxima
+    temperatura_maxima = max(temperaturas)
+    # Encontrar la temperatura mínima
+    temperatura_minima = min(temperaturas)
+    
+   
+    return temperatura_media, temperatura_maxima, temperatura_minima
+
+
+media, maxima, minima = analizar_temperaturas(temperaturas)
+
+
+print(f"Temperatura media del mes: {media:.2f}°C")
+print(f"Temperatura máxima del mes: {maxima}°C")
+print(f"Temperatura mínima del mes: {minima}°C")
+
+#15- 
+
+
+   
+def calcular_promedio(*args):
+  
+    if len(args) == 0:
+        return "No se proporcionaron notas."
+    
+    
+    promedio = sum(args) / len(args)
+    
+  
+    return promedio
+
+
+resultado = calcular_promedio(85, 90, 78, 92)
+
+
+print(f"La nota promedio es: {resultado:.2f}")
+
+#16-
+
+def crear_perfil(nombre, edad, email, **kwargs):
+   
+    perfil = {
+        "nombre": nombre,
+        "edad": edad,
+        "email": email
+    }
+    
+    perfil.update(kwargs)
+    return perfil
+
+perfil_usuario = crear_perfil(nombre="Luis", edad=25, email="juan@mail.com", ciudad="Mendoza", ocupacion="Ingeniero")
+
+print(perfil_usuario)
+
+17-    
+   
+def filtrar_empleados_por_salario(empleados, salario_umbral):
+   
+    empleados_filtrados = {}
+    
+    for id_empleado, datos in empleados.items():
+        nombre, edad, salario = datos
+      
+        if salario > salario_umbral:
+            empleados_filtrados[id_empleado] = datos
+    
+    return empleados_filtrados
+
+empleados = {
+    1: ("Ana", 30, 3000),
+    2: ("Luis", 25, 2500),
+    3: ("María", 35, 4000)
+}
+
+salario_umbral = 2500
+empleados_filtrados = filtrar_empleados_por_salario(empleados, salario_umbral)
+print(empleados_filtrados)
+
+
+#18-
+
+ventas_diarias = [200, 450, 300, 400, 350, 500, 600]
+
+def procesar_ventas(ventas):
+   
+    total_ventas = sum(ventas)
+  
+    if len(ventas) == 0:
+        promedio_ventas = 0
+    else:
+        promedio_ventas = total_ventas / len(ventas)
+   
+    return total_ventas, promedio_ventas
+
+total, promedio = procesar_ventas(ventas_diarias)
+
+print(f"Total de ventas: ${total}")
+print(f"Promedio de ventas por día: ${promedio:.2f}")
+
+
+#19-
+
+
+
+resultados = {
+    "Equipo A": (3, 2),
+    "Equipo B": (1, 1),
+    "Equipo C": (4, 0)
+}
+
+
+def analizar_resultados(resultados):
+   
+    goles_anotados_total = 0
+    goles_recibidos_total = 0
+    
+ 
+    for goles_anotados, goles_recibidos in resultados.values():
+        goles_anotados_total += goles_anotados
+        goles_recibidos_total += goles_recibidos
+    
+  
+    return goles_anotados_total, goles_recibidos_total
+
+
+total_anotados, total_recibidos = analizar_resultados(resultados)
+
+
+print(f"Total de goles anotados en la temporada: {total_anotados}")
+print(f"Total de goles recibidos en la temporada: {total_recibidos}")
+
+#20- 
+
+def configurar_app(**kwargs):
+  
+    configuraciones = {
+        "modo_oscuro": kwargs.get("modo_oscuro", False),
+        "idioma": kwargs.get("idioma", "en"),
+        "notificaciones": kwargs.get("notificaciones", True)
+    }
+    return configuraciones
+
+  configuracion = configurar_app(modo_oscuro=True, idioma="es", notificaciones=False)
+
+  print(configuracion)
+
+
+#21-
+     
+puntuaciones = [("Ana", 85), ("Luis", 90), ("María", 78)]
+
+def ordenar_puntuaciones(puntuaciones):
+   
+    puntuaciones_ordenadas = sorted(puntuaciones, key=lambda x: x[1], reverse=True)
+    return puntuaciones_ordenadas
+
+puntuaciones_ordenadas = ordenar_puntuaciones(puntuaciones)
+
+print(puntuaciones_ordenadas)
+
+#22-
+
+paquetes = [
+    ("Paris", 200, 5),
+    ("Roma", 150, 4),
+    ("Londres", 180, 3)
+]
+
+def calcular_precio_total(paquetes):
+   
+    precios_totales = {}
+    
+    for destino, precio_por_dia, duracion in paquetes:
+       
+        precio_total = precio_por_dia * duracion
+      
+        precios_totales[destino] = precio_total
+   
+    return precios_totales
+
+#23-
+
+inventario = [50, 30, 20, 10]
+ventas = [5, 10, 5, 2]
+
+def actualizar_inventario(inventario, ventas):
+   
+    for i in range(len(ventas)):
+        inventario[i] -= ventas[i]
+    
+    return inventario
+
+inventario_actualizado = actualizar_inventario(inventario, ventas)
+
+print(inventario_actualizado)
+
+#24-
+
+
+
+def organizar_eventos(*args):
+   
+    for i, evento in enumerate(args, start=1):
+        # Imprimir el evento en formato de lista numerada
+        print(f"{i}. {evento}")
+
+
+organizar_eventos("Concierto", "Exposición de arte", "Conferencia")
+
+
+#25-
+
+def analizar_finanzas(**kwargs):
+    balance = 0
+  
+    for cantidad in kwargs.values():
+       
+        balance += cantidad
+  
+    return balance
+balance_final = analizar_finanzas(sueldo=2000, renta=-800, transporte=-150, comida=-300, freelance=500)
+
+print(f"El balance final es: {balance_final}")
+
+
+
+
+
+#26-
+
+   
+def registro_empleado(nombre, edad, salario, **kwargs):
+   
+    empleado = {
+        "nombre": nombre,
+        "edad": edad,
+        "salario": salario
+    }
+  
+    empleado.update(kwargs)
+    return empleado
+
+empleado_info = registro_empleado("Ana", 30, 3000, direccion="Calle Falsa 123", telefono="123456789")
+
+print(empleado_info)
+
+
+#27-
+
+    def estadisticas_ventas(ventas_mensuales):
+
+    total_ventas = sum(ventas_mensuales)
+    
+   
+    promedio_mensual = total_ventas / len(ventas_mensuales)
+    
+
+    mes_mayor_ventas = ventas_mensuales.index(max(ventas_mensuales))
+    
+    
+    return {
+        "total_ventas": total_ventas,
+        "promedio_mensual": promedio_mensual,
+        "mes_con_mayor_ventas": mes_mayor_ventas + 1  # Añadir 1 para que sea 1-based (1 para el primer mes, etc.)
+    }
+
+
+ventas_mensuales = [2000, 2500, 3000, 2800, 3500, 4000, 4200, 3800, 3600, 3900, 4100, 4500]
+
+
+estadisticas = estadisticas_ventas(ventas_mensuales)
+
+
+print(estadisticas)
+
+#28-
+
+
+  def libros_publicados_despues_de_2000(biblioteca):
+
+    libros_filtrados = []
+    
+  
+    for titulo, info in biblioteca.items():
+        
+        if info["año"] > 2000:
+           
+            libros_filtrados.append(titulo)
+    
+ 
+    return libros_filtrados
+
+
+biblioteca = {
+    "El señor de los anillos": {"autor": "J.R.R. Tolkien", "año": 1954, "género": "Fantasía"},
+    "Cien años de soledad": {"autor": "Gabriel García Márquez", "año": 1967, "género": "Realismo mágico"},
+    "El código Da Vinci": {"autor": "Dan Brown", "año": 2003, "género": "Suspenso"}
+}
+
+
+libros_despues_de_2000 = libros_publicados_despues_de_2000(biblioteca)
+
+
+print(libros_despues_de_2000)
+
+
+#29-
+
+
+    def calcular_promedios(notas_estudiantes):
+  
+    promedios = {}
+    
+   
+    for nombre, calificaciones in notas_estudiantes:
+       
+        promedio = sum(calificaciones) / len(calificaciones)
+       
+        promedios[nombre] = promedio
+    
+  
+    return promedios
+
+
+notas_estudiantes = [
+    ("Ana", [85, 90, 78]),
+    ("Luis", [88, 92, 80]),
+    ("María", [75, 85, 70])
+]
+
+
+promedios_estudiantes = calcular_promedios(notas_estudiantes)
+
+
+print(promedios_estudiantes)
+
+#30-
+
+    def configurar_perfiles(usuarios, **kwargs):
+   
+    configuraciones = {}
+    
+    
+    for usuario in usuarios:
+      
+        configuraciones[usuario] = list(kwargs.values())
+    
+   
+    return configuraciones
+
+
+usuarios = ["Ana", "Luis", "María"]
+
+
+perfiles_configurados = configurar_perfiles(usuarios, idioma="es", modo_oscuro=True, notificaciones=False)
+
+
+print(perfiles_configurados)
+
+
+#31-
+
+    def publicar(nombre, texto, **kwargs):
+    
+    publicacion = {
+        "usuario": nombre,
+        "texto": texto,
+        "etiquetas": kwargs.get("etiquetas", []),  # Obtener etiquetas o una lista vacía si no hay
+        "visibilidad": kwargs.get("visibilidad", "publica"),  # Predeterminado a "publica" si no se proporciona
+        "likes": kwargs.get("likes", 0)  # Predeterminado a 0 si no se proporciona
+    }
+    
+   
+    return publicacion
+
+
+resultado_publicacion = publicar("Juan", "Mi primer post!", etiquetas=["#hola", "#primerPost"], visibilidad="publica", likes=100)
+
+
+print(resultado_publicacion)
+
+
+#32- 
+
+    def simular_ventas(*args):
+  
+    total_ingresos = 0
+    
+   
+    for venta in args:
+        producto, cantidad, precio = venta  # Desempaquetar la tupla de venta
+        ingresos = cantidad * precio  # Calcular ingresos por producto
+        total_ingresos += ingresos  # Sumar ingresos al total
+    
+  
+    return total_ingresos
+
+
+resultado_ventas = simular_ventas(("Producto A", 10, 15.0), ("Producto B", 5, 25.0), ("Producto C", 3, 50.0))
+
+
+print("Total de ingresos generados por las ventas:", resultado_ventas)
+
+
+
+
+
+
+#33-
+
+    def hacer_reserva(reservas, fecha, nombre_huesped, habitacion, precio):
+  
+    if fecha in reservas:
+     
+        for reserva in reservas[fecha]:
+            if reserva[1] == habitacion:  # La habitación está ocupada
+                return f"La habitación {habitacion} ya está reservada el {fecha}."
+        
+       
+        reservas[fecha].append((nombre_huesped, habitacion, precio))
+    else:
+       
+        reservas[fecha] = [(nombre_huesped, habitacion, precio)]
+
+    return f"Reserva realizada con éxito para {nombre_huesped} en la habitación {habitacion} el {fecha}."
+
+
+reservas = {
+    "2024-08-15": [("Juan", 101, 150), ("Ana", 102, 180)],
+    "2024-08-16": [("Luis", 101, 150)]
+}
+
+
+resultado = hacer_reserva(reservas, "2024-08-15", "Carlos", 103, 200)
+print(resultado)  # Reserva realizada con éxito para Carlos en la habitación 103 el 2024-08-15.
+
+
+resultado = hacer_reserva(reservas, "2024-08-15", "
+
+#34-
+    def calcular_frecuencia_respuestas(encuestas):
+  
+    frecuencias = {}
+
+   
+    for pregunta, respuestas in encuestas.items():
+      
+        frecuencia = {}
+
+       
+        for respuesta in respuestas:
+            if respuesta in frecuencia:
+                frecuencia[respuesta] += 1
+            else:
+                frecuencia[respuesta] = 1
+        
+        
+        frecuencias[pregunta] = frecuencia
+
+    return frecuencias
+
+
+encuestas = {
+    "¿Cómo califica el servicio?": [5, 4, 5, 3, 5, 4],
+    "¿Recomendaría nuestro producto?": [1, 1, 0, 1, 1, 0]
+}
+
+resultados = calcular_frecuencia_respuestas(encuestas)
+print(resultados)
+
+#35-
+
+    def optimizar_rutas(rutas, distancias_max):
+ 
+    rutas_optimizadas = []
+
+ 
+    for i, ruta in enumerate(rutas):
+       
+        origen, destino, distancia = ruta
+        
+      
+        if distancia <= distancias_max[i]:
+           
+            rutas_optimizadas.append(ruta)
+
+    return rutas_optimizadas
+
+
+rutas = [("Madrid", "Barcelona", 620), ("Madrid", "Valencia", 350), ("Barcelona", "Valencia", 350)]
+distancias_max = [600, 400, 500]
+
+rutas_validas = optimizar_rutas(rutas, distancias_max)
+print(rutas_validas)
+
+
+
+#36-
+
+  def gestionar_inventario(inventario, **kwargs):
+  
+    tienda = kwargs.get('tienda')
+    producto = kwargs.get('producto')
+    cantidad = kwargs.get('cantidad')
+
+  
+    if tienda in inventario:
+      
+        if producto in inventario[tienda]:
+           
+            inventario[tienda][producto] += cantidad
+        else:
+           
+            inventario[tienda][producto] = cantidad
+    else:
+       
+        inventario[tienda] = {producto: cantidad}
+
+    return inventario
+
+
+inventario = {
+    "Tienda A": {"producto_1": 50, "producto_2": 30},
+    "Tienda B": {"producto_1": 20, "producto_2": 40}
+}
+
+
+nuevo_inventario = gestionar_inventario(inventario, tienda="Tienda A", producto="producto_1", cantidad=10)
+print(nuevo_inventario)
+
+
+nuevo_inventario = gestionar_inventario(inventario, tienda="Tienda A", producto="producto_3", cantidad=15)
+print(nuevo_inventario)
+
+
+nuevo_inventario = gestionar_inventario(inventario, tienda="Tienda C", producto="producto_1", cantidad=5)
+print(nuevo_inventario)
+
+#37-
+
+
+  def analizar_tendencias(hashtags, tendencias, limite):
+   
+    frecuencias = {hashtag: frecuencia for hashtag, frecuencia in tendencias}
+    
+  
+    hashtags_populares = []
+    
+  
+    for hashtag in set(hashtags):  # Convertir hashtags a set para eliminar duplicados
+        if hashtag in frecuencias and frecuencias[hashtag] > limite:
+            hashtags_populares.append((hashtag, frecuencias[hashtag]))
+    
+    return hashtags_populares
+
+
+hashtags = ["#verano", "#moda", "#viajes", "#verano", "#moda", "#tecnologia"]
+tendencias = [("#verano", 120), ("#moda", 80), ("#tecnologia", 150)]
+
+
+limite_menciones = 100
+resultados = analizar_tendencias(hashtags, tendencias, limite_menciones)
+print(resultados)
+
+
+#38-
+
+
+def actualizar_suscripcion(suscripciones, usuario, suscripcion, **kwargs):
+ 
+    if usuario in suscripciones:
+        suscripciones[usuario].append(suscripcion)
+    else:
+      
+        suscripciones[usuario] = [suscripcion]
+
+  
+    if kwargs:
+        for clave, valor in kwargs.items():
+            suscripciones[usuario].append(f"{clave}: {valor}")
+    
+    return suscripciones
+
+
+suscripciones = {
+    "Jose": ["mensual", "anual"],
+    "Ana": ["mensual"]
+}
+
+
+estado_actualizado = actualizar_suscripcion(suscripciones, usuario="Luis", suscripcion="mensual", auto_renovacion=True)
+print(estado_actualizado)
+
+
+#39-
+
+    def simular_mercado(precios_diarios, operaciones):
+  
+    beneficio_total = 0
+    acciones_compradas = []
+
+    for operacion, dia in operaciones:
+        precio = precios_diarios[dia]
+
+        if operacion == "compra":
+          
+            acciones_compradas.append(precio)
+        elif operacion == "venta" and acciones_compradas:
+           
+            precio_compra = acciones_compradas.pop(0)  # Asumimos que vendemos en el orden de compra (FIFO)
+            beneficio_total += precio - precio_compra
+
+    return beneficio_total
+
+
+precios_diarios = [100, 105, 102, 110, 108]
+operaciones = [("compra", 0), ("venta", 3), ("compra", 2), ("venta", 4)]
+
+
+beneficio = simular_mercado(precios_diarios, operaciones)
+print(f"El beneficio o pérdida total es: {beneficio}")
+
+#40-
+    def ranking_estudiantes(estudiantes):
+    promedios = {}
+    
+    for estudiante_id, materias in estudiantes.items():
+        total_calificaciones = 0
+        total_materias = 0
+        
+        for materia, calificaciones in materias.items():
+            total_calificaciones += sum(calificaciones)
+            total_materias += len(calificaciones)
+        
+        promedio_general = total_calificaciones / total_materias
+        promedios[estudiante_id] = promedio_general
+    
+   
+    ranking = sorted(promedios.items(), key=lambda x: x[1], reverse=True)
+    
+    return ranking
+
+
+estudiantes = {
+    101: {"matemáticas": [85, 90, 78], "ciencias": [88, 85, 80]},
+    102: {"matemáticas": [92, 88, 84], "ciencias": [75, 80, 85]},
+    103: {"matemáticas": [78, 85, 88], "ciencias": [90, 95, 92]}
+}
+
+
+ranking = ranking_estudiantes(estudiantes)
+print("Ranking de estudiantes basado en el promedio general:")
+for estudiante_id, promedio in ranking:
+    print(f"ID: {estudiante_id}, Promedio: {promedio:.2f}")
+
+
+
