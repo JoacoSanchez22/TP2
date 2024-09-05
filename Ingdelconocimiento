@@ -1,0 +1,52 @@
+
+#1-
+  print("Mi primer codigo en python")
+
+#2-
+
+
+#3-
+  respuesta = input("¿Que estas estudiando?")
+  print("Tu respuesta es:", respuesta)
+
+#4-
+
+  respuesta = input("¿En que pais vives?")
+  print("Tu respuesta es:", respuesta)
+
+#5-
+
+  nombre = "David Bowman"
+  edad = 51
+
+  print("Nombre:", nombre)
+  print("Edad:", edad)
+
+#6-
+
+    nombre = "Julia"
+   apellido = "Roberts"
+  nombrecompleto = nombre + " " + apellido
+  print("Nombre completo:", nombrecompleto)
+
+#7-
+
+  materia = "Ingeniería del conocimiento"
+  print("Estás estudiando " + "“" + materia + "”")
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
